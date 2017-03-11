@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-	<display-name>17-SpringMvcIoc</display-name>
+	<display-name>30-Tp_EcommerceSpring</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		

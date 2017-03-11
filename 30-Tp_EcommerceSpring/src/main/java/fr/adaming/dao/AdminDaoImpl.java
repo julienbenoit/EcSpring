@@ -154,30 +154,29 @@ public class AdminDaoImpl implements IAdminDao {
 		s.update(c);
 
 	}
+	
+	@Override
+	public Categorie getCategorieById(int id) {
+		Session s=sf.getCurrentSession();
+		Categorie c1=(Categorie) s.get(Categorie.class, id);
+		
+		return c1;
+	}
 
-	/**
-	 * This method find the existence of an admin to allow the connection
-	 * 
-	 * @param Admin
-	 * @return Admin
-	 */
+	@Override
+	public Produit getProduitById(int id) {
+		Session s=sf.getCurrentSession();
+		Produit p1=(Produit) s.get(Produit.class, id);
+		
+		return p1;
+	}
+
 	@Override
 	public Admin isExist(Admin a) {
-		Session s = sf.getCurrentSession();
-		String req = "SELECT m FROM Admin m WHERE m.nom=:pLogin AND m.password=:pMdp";
-		Query query = s.createQuery(req);
-		query.setParameter("pLogin", a.getPassword());
-		query.setParameter("pMdp", a.getNom());
-		List<Admin> listeAdmin = query.list();
-
-		if (listeAdmin.size() != 0) {
-			Admin adminRetour = listeAdmin.get(0);
-			return adminRetour;
-
-		} else {
-			return null;
-		}
-
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 
 }

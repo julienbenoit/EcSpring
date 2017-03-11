@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link href="<c:url value="/resources/js/bootstrap.js"/>" />
 
 <style>
 body {
@@ -40,11 +42,9 @@ li a:hover:not (.active ) {
 	color: white;
 }
 </style>
-
 </head>
 <body>
-
-	<h1>Accueil Site pour Ecommerce</h1>
+<h1>Accueil Site pour Ecommerce</h1>
 
 	<ul>
 		<li><a
@@ -66,9 +66,46 @@ li a:hover:not (.active ) {
 	</ul>
 
 	<div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
-		<h2>Pret à faire vos achats en ligne</h2>
+		<h2>Formulaire ajouter categorie</h2>
 
+	<form:form method="POST" action="soumettreFormAjoutCat"
+		modelAttribute="categorieForm">
+		<table>
+			<tr>
+				<td>${categorieForm.id}</td>
+				<td><form:input path="id" type="hidden" /></td>
+
+			</tr>
+			<tr>
+				<td><form:label path="idCategorie">Num:</form:label></td>
+				<td><form:input path="idCategorie" /></td>
+				<td><form:errors path="idCategorie" cssStyle="color:red" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="nomCategorie">Nom:</form:label></td>
+				<td><form:input path="nomCategorie" /></td>
+				<td><form:errors path="nomCategorie" cssStyle="color:red" /></td>
+			</tr>
+
+			<tr>
+				<td><form:label path="description">Description:</form:label></td>
+				<td><form:input path="description" /></td>
+				<td><form:errors path="description" cssStyle="color:red" /></td>
+			</tr>
+
+
+			<tr>
+				<td><input type="submit" value="value" /></td>
+
+			</tr>
+
+
+		</table>
+	</form:form>
 	</div>
 
+
+
+	
 </body>
 </html>

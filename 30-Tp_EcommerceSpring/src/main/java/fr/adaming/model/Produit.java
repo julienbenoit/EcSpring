@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -27,9 +30,13 @@ public class Produit implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_produit")
 	private int id;
+	@NotNull(message="champs obligatoire")
 	private long idProduit;
+	@NotEmpty(message="champs obligatoire")
 	private String designation;
+	@NotEmpty(message="champs obligatoire")
 	private String description;
+	@NotNull(message="champs obligatoire")
 	private float prix;
 	private int quantite;
 	private String selectionne;
@@ -135,7 +142,9 @@ public class Produit implements Serializable{
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
-	public String isSelectionne() {
+
+	
+	public String getSelectionne() {
 		return selectionne;
 	}
 	public void setSelectionne(String selectionne) {
@@ -158,11 +167,11 @@ public class Produit implements Serializable{
 	//====================Redefine ToString==============================
 	@Override
 	public String toString() {
-		return "Produit [id=" + id + ", idProduit=" + idProduit
-				+ ", designation=" + designation + ", description="
-				+ description + ", prix=" + prix + ", quantite=" + quantite
-				+ ", selectionne=" + selectionne+"]";
+		return "Produit [id=" + id + ", idProduit=" + idProduit + ", designation=" + designation + ", description="
+				+ description + ", prix=" + prix + ", quantite=" + quantite + ", selectionne=" + selectionne + "]";
 	}
+	
+	
 	
 	
 	

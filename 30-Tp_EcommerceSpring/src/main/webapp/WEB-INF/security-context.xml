@@ -1,45 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
-<!-- declaration des url securisées et des autorisation -->
-	<security:http >
+	<!-- declaration des url securisées et des autorisation -->
+	<security:http>
 		<!-- interception des url -->
-		<security:intercept-url pattern="/employe/**"
+		<security:intercept-url pattern="/admin/**"
 			access="ROLE_ADMIN" />
 		<security:form-login login-page="/loginUrl"
 			authentication-failure-url="/loginUrl" />
-			<!-- pour ce deconnecter avec un controller -->
+	
+<security:intercept-url pattern="/adminPro/**"
+			access="ROLE_ADMIN_PRO" />
+
 		<security:logout invalidate-session="true"
-			logout-success-url="/logoutUrl" />		
+			logout-success-url="/logoutUrl" />
 	</security:http>
-				
-	
-	<context:property-placeholder location="classpath*:db_infos.properties"/>	
-	
-		<bean id="dataSourceBean2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${db.driver}"></property>
-		<property name="url" value="${db.urll}"></property>
-		<property name="username" value="${db.user}"></property>
-		<property name="password" value="${db.mdp}"></property>
-		</bean>
-	
+
 	<security:authentication-manager>
 		<security:authentication-provider>
-<!-- <security:user-service> -->
-<!-- 				<security:user name="admin" password="a" authorities="ROLE_ADMIN" /> -->
-		
-<!-- 			</security:user-service> -->
-			<security:jdbc-user-service data-source-ref="dataSourceBean2" users-by-username-query="select username, password, actived from users where username=?"
-authorities-by-username-query="select u.username, r.rolename from users u, roles r where r.id_r=u.role_id and u.username=?"/>
+			<security:user-service>
+				<security:user name="adminpro" password="p" authorities="ROLE_ADMIN_PRO" />
+<security:user name="admin" password="a" authorities="ROLE_ADMIN" />
+			</security:user-service>
+
 		</security:authentication-provider>
 	</security:authentication-manager>
-	
-	
-	
+
+
+
 </beans>

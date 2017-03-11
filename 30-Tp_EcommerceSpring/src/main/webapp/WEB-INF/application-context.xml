@@ -13,7 +13,7 @@
 	<context:component-scan base-package="fr.adaming"></context:component-scan>
 
 	<!-- localisation du fichier .properties pas meme dossier classpath -->
-	<context:property-placeholder location="classpath*:bd_infos.properties" />
+	<context:property-placeholder location="classpath*:basedonneinfo.properties" />
 
 	<!-- datasource -->
 	<bean id="dataSourceBean"

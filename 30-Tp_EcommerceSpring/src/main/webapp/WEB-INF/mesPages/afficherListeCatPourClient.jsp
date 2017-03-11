@@ -1,12 +1,12 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
 <style>
 body {
 	margin: 0;
@@ -34,10 +34,31 @@ li a.active {
 	background-color: #4CAF50;
 	color: white;
 }
+li
+ 
+a
+:hover
+:not
+ 
+(
+.active
+ 
+)
+{
+background-color
+:
+ 
+#555
+;
 
-li a:hover:not (.active ) {
-	background-color: #555;
-	color: white;
+	
+color
+:
+ 
+white
+;
+
+
 }
 </style>
 
@@ -66,9 +87,23 @@ li a:hover:not (.active ) {
 	</ul>
 
 	<div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
-		<h2>Pret à faire vos achats en ligne</h2>
-
+		<h2>Liste Categorie</h2>
+		<table cellspacing="0" cellpadding="6" border="1" width="60%">
+			<tr bgcolor="grey" style="color: white;">
+				<th>Id</th>
+				<th>Num Categorie</th>
+				<th>Nom</th>
+				<th>Description</th>
+			</tr>
+			<c:forEach var="emp" items="${catListe}">
+				<tr bgcolor="lightyellow">
+					<td>${emp.id}</td>
+					<td>${emp.idCategorie}</td>
+					<td>${emp.nomCategorie}</td>
+					<td>${emp.description}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
-
 </body>
 </html>

@@ -21,90 +21,26 @@ import fr.adaming.model.Produit;
 import fr.adaming.service.IAdminService;
 
 @Controller
-@RequestMapping("/adminPro")
-public class AdminController {
+@RequestMapping("/admin")
+public class AdminProduitController {
 
 	@Autowired
 	private IAdminService aS;
 
-
-	// PartieCategorie
-	@RequestMapping(value = "/accueilAdminPro", method = RequestMethod.GET)
-	public String accueilAdminPro(ModelMap model) {
-
-		return "accueilAdminPro";
-	}
-
-	@RequestMapping(value = "/listeCategorie", method = RequestMethod.GET)
-	public String afficherCategorie(ModelMap model) {
-
-		List<Categorie> listeCat = aS.consulterCategorieAdminService();
-
-		model.addAttribute("catListe", listeCat);
-		return "afficherListeCat";
-	}
-
-	@RequestMapping(value = "/affichFormAjoutCat", method = RequestMethod.GET)
-	public ModelAndView affichFormAjout() {
-		return new ModelAndView("ajouterCat", "categorieForm", new Categorie());
-	}
-
-	@RequestMapping(value = "/soumettreFormAjoutCat", method = RequestMethod.POST)
-	public String soumettreFormAjout(Model model, @Valid @ModelAttribute("categorieForm") Categorie cat, BindingResult bResultat) {
-
-		if(bResultat.hasErrors()){
-			return "ajouterCat";
-		}else{
-		if (cat.getId() == 0) {
-
-			aS.ajouterCategorieAdminService(cat);
-	
-		} else {
-
-			aS.mofifierCategorieAdminService(cat);
-		
-		}
-
-		List<Categorie> listeCat = aS.consulterCategorieAdminService();
-
-		model.addAttribute("catListe", listeCat);
-		}
-		return "afficherListeCat";
-
-	}
-
-	@RequestMapping(value = "/affichFormmodifCat", method = RequestMethod.GET)
-	public String affichFormModif(ModelMap model, @RequestParam("id_param") int id_cat) {
-
-		Categorie cat = aS.getCategorieByIdService(id_cat);
-		model.addAttribute("categorieForm", cat);
-
-		return "ajouterCat";
-	}
-
-	@RequestMapping(value = "/supprimerCategorie", method = RequestMethod.GET)
-	public String supprimerCategorie(Model model, @RequestParam("id_param") int id) {
-
-		Categorie cat = aS.getCategorieByIdService(id);
-		aS.supprimerCategorieAdminService(cat);
-
-		List<Categorie> listeCat = aS.consulterCategorieAdminService();
-
-		model.addAttribute("catListe", listeCat);
-
-		return "afficherListeCat";
-
-	}
-
 	// Partie Produit
 
+	@RequestMapping(value = "/accueilAdmin", method = RequestMethod.GET)
+	public String accueilAdminPro(ModelMap model) {
+
+		return "accueilAdmin";
+	}
 	@RequestMapping(value = "/listeProduit", method = RequestMethod.GET)
 	public String afficherProduit(ModelMap model) {
 
 		List<Produit> listeProduit = aS.consulterAdminService();
 
 		model.addAttribute("produitListe", listeProduit);
-		return "afficherListeProduit";
+		return "afficherListeProduitAd";
 	}
 
 	@RequestMapping(value = "/affichFormAjoutProduit", method = RequestMethod.GET)
@@ -113,11 +49,8 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/soumettreFormAjoutProduit", method = RequestMethod.POST)
-	public String soumettreFormAjoutProd(Model model, @Valid @ModelAttribute("produitForm") Produit prod, BindingResult bResultat) {
+	public String soumettreFormAjoutProd(Model model, @ModelAttribute("ProduitForm") Produit prod) {
 
-		if(bResultat.hasErrors()){
-			return "ajouterProduit";
-		}else{
 		if (prod.getId() == 0) {
 			
 			aS.ajouterAdminService(prod, prod.getCategorie_associe().getId());
@@ -128,8 +61,8 @@ public class AdminController {
 
 			List<Produit> listeProduit = aS.consulterAdminService();
 
-			model.addAttribute("produitListe", listeProduit);}
-			return "afficherListeProduit";
+			model.addAttribute("produitListe", listeProduit);
+			return "afficherListeProduitAd";
 
 		
 	
@@ -153,7 +86,7 @@ public class AdminController {
 		List<Produit> listeProduit = aS.consulterAdminService();
 
 		model.addAttribute("produitListe", listeProduit);
-		return "afficherListeProduit";
+		return "afficherListeProduitAd";
 
 	}
 

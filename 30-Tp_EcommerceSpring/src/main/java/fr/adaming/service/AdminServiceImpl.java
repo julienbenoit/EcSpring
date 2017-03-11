@@ -156,4 +156,16 @@ public class AdminServiceImpl implements IAdminService {
 		return ad;
 	}
 
+	@Override
+	public Categorie getCategorieByIdService(int id) {
+		
+		return adminDao.getCategorieById(id);
+	}
+
+	@Override
+	public Produit getProduitByIdService(int id) {
+		
+		return adminDao.getProduitById(id);
+	}
+
 }

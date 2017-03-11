@@ -1,7 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html >
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,11 +41,9 @@ li a:hover:not (.active ) {
 	color: white;
 }
 </style>
-
 </head>
 <body>
-
-	<h1>Accueil Site pour Ecommerce</h1>
+<h1>Accueil Site pour Ecommerce</h1>
 
 	<ul>
 		<li><a
@@ -66,9 +65,34 @@ li a:hover:not (.active ) {
 	</ul>
 
 	<div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
-		<h2>Pret à faire vos achats en ligne</h2>
+		<h2>Liste Produit</h2>
 
+<h5><a href="${pageContext.request.contextPath }/admin/affichFormAjoutProduit">Ajout produit</a></h5>
+<table cellspacing="0" cellpadding="6" border="1" width="60%">
+<tr bgcolor="grey" style="color: white;">
+<th>Id</th>
+<th>Num Produit</th>
+<th>Designation</th>
+<th>Description</th>
+<th>Prix</th>
+<th>Supp/Edit</th>
+</tr>
+<c:forEach var="emp" items="${produitListe}">
+<tr bgcolor="lightyellow">
+<td>${emp.id}</td>
+<td>${emp.idProduit}</td>
+<td>${emp.designation}</td>
+<td>${emp.description}</td>
+<td>${emp.prix}</td>
+<td><a href="supprimerProduit?id_param=${emp.id}">supp</a>|<a href="affichFormmodifProduit?id_param=${emp.id}">Edit</a></td>
+</tr>
+
+</c:forEach>
+
+</table>
 	</div>
+
+
 
 </body>
 </html>

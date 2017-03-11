@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- ajout de la tag lib form de spring -->
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -40,7 +41,6 @@ li a:hover:not (.active ) {
 	color: white;
 }
 </style>
-
 </head>
 <body>
 
@@ -66,8 +66,24 @@ li a:hover:not (.active ) {
 	</ul>
 
 	<div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
-		<h2>Pret à faire vos achats en ligne</h2>
+		<h2>Formulaire</h2>
 
+	<form method="GET" action="afficherListeProduitParC">
+		
+		<table>
+			<tr>
+				<td>Id categorie: </td>
+				<td><input name="param" /></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="value" /></td>
+
+			</tr>
+
+
+		</table>
+	</form>
 	</div>
 
 </body>

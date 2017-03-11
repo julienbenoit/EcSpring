@@ -13,6 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -25,8 +28,11 @@ public class Categorie implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_categorie")
 	private int id;
+	@NotNull(message="champs obligatoire")
 	private long idCategorie;
+	@NotEmpty(message="champs obligatoire")
 	private String nomCategorie;
+	@NotEmpty(message="champs obligatoire")
 	private String description;
 	
 	

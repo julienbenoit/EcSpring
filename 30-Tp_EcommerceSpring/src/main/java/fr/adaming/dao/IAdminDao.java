@@ -74,6 +74,6 @@ public List<Produit> consulterAdminDao();
 	 */
 	public Admin isExist(Admin a);
 
-
-
+	public Categorie getCategorieById(int id); 
+	public Produit getProduitById(int id);
 }

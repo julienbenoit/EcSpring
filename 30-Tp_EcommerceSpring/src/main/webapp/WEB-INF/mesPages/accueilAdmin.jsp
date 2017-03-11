@@ -6,31 +6,71 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+body {
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 25%;
+	background-color: #f1f1f1;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+li a {
+	display: block;
+	color: #000;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+li a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+li a:hover:not (.active ) {
+	background-color: #555;
+	color: white;
+}
+</style>
+
+
 <body>
-<h1 style="background-color: ligntgreen; color: darkgreen; text-align: center">${nomApp}</h1>
-<h1>${salutation}</h1>
-<h5><a href="listeEmploye">liste des employes</a></h5>
-<h5><a href="ajouterEmploye">Ajouter employes</a></h5>
-<h5><a href="modEmploye">modifier employes</a></h5>
-<h5><a href="supEmploye">supprimer employes</a></h5>
-<h5><a href="obEmploye">Obtenir un employe</a></h5>
 
-Liste Employes
-<table cellspacing="0" cellpadding="6" border="1" width="60%">
-<tr bgcolor="grey" style="color: white;">
-<th>Id</th>
-<th>Nom</th>
-<th>Mail</th>
-</tr>
-<c:forEach var="emp" items="${empListe}">
-<tr bgcolor="lightyellow">
-<td>${emp.id}</td>
-<td>${emp.nom}</td>
-<td>${emp.mail}</td>
-</tr>
+<h1>Accueil Site pour Ecommerce</h1>
 
-</c:forEach>
+	<ul>
+		<li><a
+			href="${pageContext.request.contextPath }/adminPro/accueilAdminPro">accueilAdminPro</li>
+		<li><a
+			href="${pageContext.request.contextPath }/admin/accueilAdmin">accueilAdmin</a></li>
+		<li><a href="listeCategorieClient">consulter categorie</a></li>
+		<li><a href="listeProduitParCategorie">consulter produit par
+				categorie</a></li>
+		<li><a href="afficherListeProduitParSelection">consulter
+				produit selectionne</a></li>
+		<li><a href="listeProduitParMotCle">consulter produit par mot
+				cle</a></li>
+		<li><a href="supprimerProduitDansPanier">supprimer un produit
+				au panier</a></li>
+		<li><a href="enregistrerCommande">enregistrer une commande</a></li>
+		<li><a href="ajouterProduitDansPanier">ajouter un produit du
+				panier</a></li>
+	</ul>
 
-</table>
+	<div style="margin-left: 25%; padding: 1px 16px; height: 1000px;">
+		
+<h5><a href="listeProduit">Liste des produits</a></h5>
+	</div>
+
+
+
+
 </body>
 </html>

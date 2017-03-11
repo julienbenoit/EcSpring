@@ -87,5 +87,7 @@ public interface IAdminService {
 	 * @param Admin
 	 * @return void
 	 */
+	public Categorie getCategorieByIdService(int id) ;
+	public Produit getProduitByIdService(int id);
 }
 

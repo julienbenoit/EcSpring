@@ -31,14 +31,8 @@ public interface IClientService {
 	 */
 	public void supprimerProduitPanierService(Produit p);
 	
-	/**
-	 * This method update the product from the table command
-	 * @param p is an object Produit (long idProduit, String designation, String description,float prix, int quantite, boolean selectionne)
- 	 * @return void : this method is an action doesn't return anything
-	 */
-//	voir si on la supprime ---public void mofifierProduitService(Produit p);
-	
-	
+
+
 	/**
 	 * This method get all the categories from the table product
 	 * @param void
