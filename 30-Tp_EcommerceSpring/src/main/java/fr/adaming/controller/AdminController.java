@@ -28,7 +28,8 @@ public class AdminController {
 	private IAdminService aS;
 
 
-	// PartieCategorie
+	// PartieCategorie 
+	//accueil
 	@RequestMapping(value = "/accueilAdminPro", method = RequestMethod.GET)
 	public String accueilAdminPro(ModelMap model) {
 
