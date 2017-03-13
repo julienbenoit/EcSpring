@@ -78,7 +78,7 @@ public class ClientController {
 	
 	@RequestMapping(value = "/ajouterProduitDansPanier", method = RequestMethod.GET)
 	public ModelAndView affichFormAjout() {
-		return new ModelAndView("supprimerProduitDansPanier", "produitForm", new Produit());
+		return new ModelAndView("ajouterProduitDansPanier", "produitForm", new Produit());
 	}
 	@RequestMapping(value = "/ajouterPanier", method = RequestMethod.POST)
 	public String ajouterPanier(Model model, @Valid Produit prod, BindingResult bResultat) {

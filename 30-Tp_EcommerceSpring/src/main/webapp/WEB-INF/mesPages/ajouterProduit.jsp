@@ -48,7 +48,7 @@ li a:hover:not (.active ) {
 
 	<ul>
 		<li><a
-			href="${pageContext.request.contextPath }/adminPro/accueilAdminPro">accueilAdminPro</li>
+			href="${pageContext.request.contextPath }/adminPro/accueilAdminPro">accueilAdminPro</a></li>
 		<li><a
 			href="${pageContext.request.contextPath }/admin/accueilAdmin">accueilAdmin</a></li>
 		<li><a href="listeCategorieClient">consulter categorie</a></li>

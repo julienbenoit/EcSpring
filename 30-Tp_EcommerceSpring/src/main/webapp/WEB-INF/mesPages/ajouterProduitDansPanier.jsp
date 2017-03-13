@@ -69,7 +69,7 @@ white
 
 	<ul>
 		<li><a
-			href="${pageContext.request.contextPath }/adminPro/accueilAdminPro">accueilAdminPro</li>
+			href="${pageContext.request.contextPath }/adminPro/accueilAdminPro">accueilAdminPro</a></li>
 		<li><a
 			href="${pageContext.request.contextPath }/admin/accueilAdmin">accueilAdmin</a></li>
 		<li><a href="listeCategorieClient">consulter categorie</a></li>
@@ -94,9 +94,9 @@ white
 			<table>
 
 				<tr>
-					<td><form:label path="id">Id produit:</form:label></td>
-					<td><form:input path="id" /></td>
-					<td><form:errors path="id" cssStyle="color:red" /></td>
+					<td><form:label path="idProduit">Id produit:</form:label></td>
+					<td><form:input path="idProduit" /></td>
+					<td><form:errors path="idProduit" cssStyle="color:red" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="quantite">Quantite:</form:label></td>
